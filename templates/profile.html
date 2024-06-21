@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+<body>
+    <div class="container">
+        <h1>User Profile</h1>
+        <div class="profile-info">
+            <p><span>Name:</span> {{ user.username }}</p>
+            <p><span>Address:</span> {{ user.profile.address }}</p>
+            <p><span>Email:</span> {{ user.email }}</p>
+            <p><span>Skills:</span> {{ user.profile.skills }}</p>
+            <p><span>Contact:</span> {{ user.profile.contact }}</p>
+        </div>
+        <div class="projects">
+            <h2>Projects</h2>
+            <div class="actions">
+                <a href="{% url 'edit_profile' %}" class="btn-edit">Edit Profile</a>
+                <a href="{% url 'add_portfolio' %}" class="btn-portfolio">Portfolio</a>
+                <a href="{% url 'add_project' %}" class="btn-add">Add Project</a>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

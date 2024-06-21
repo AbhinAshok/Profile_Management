@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Portfolio</title>
+    <link rel="stylesheet" href="{% static 'style1.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Portfolio</h1>
+        <form method="post">
+            {% csrf_token %}
+            <p>
+                <label for="id_project">Project:</label>
+                <input type="text" name="project" id="id_project">
+            </p>
+            <p>
+                <label for="id_work_experience">Work Experience:</label>
+                <textarea name="work_experience" id="id_work_experience"></textarea>
+            </p>
+            <p>
+                <label for="id_education">Education:</label>
+                <textarea name="education" id="id_education"></textarea>
+            </p>
+            <p>
+                <label for="id_certification">Certification:</label>
+                <input type="text" name="certification" id="id_certification">
+            </p>
+            <button type="submit">Save</button>
+        </form>
+        <div class="back-link">
+            <a href="{% url 'profile_view' %}">Back to Profile</a>
+        </div>
+    </div>
+</body>
+</html>
