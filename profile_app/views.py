@@ -57,7 +57,7 @@ def register_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('profile_view')  # Adjust this to your profile view URL name
+            return redirect('profile_view')
     else:
         form = UserRegisterForm()
     return render(request, 'register.html', {'form': form})
@@ -71,7 +71,6 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('profile_view')  # Adjust this to your profile view URL name
-    else:
+                return redirect('profile_view')
         form = UserLoginForm()
     return render(request, 'login.html', {'form': form})
